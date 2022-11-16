@@ -43,7 +43,7 @@
                 let aws_credentials = check_second_part.shift();
                 let second_url_part = check_second_part.join('/');
                 let url_without_credentials = [split_by_query[0], second_url_part].join('/')
-                return [url_without_credentials, aws_credentials]
+                return [url_without_credentials, aws_credentials.replace(/&amp;/g, '&')]
             }
         }
 
