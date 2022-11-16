@@ -46,7 +46,6 @@
 <script src="{% static 'mdeditor/languages/pt_BR.js' %}"></script>
 {% endif %}
 <script type="text/javascript">
-
     $(function () {
         editormd("{{ id }}-wmd-wrapper", {
             watch: {{ config.watch|lower }}, // 关闭实时预览
