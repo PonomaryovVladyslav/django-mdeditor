@@ -4116,10 +4116,8 @@
 
     editormd.loadCSS   = function(fileName, callback, into) {
         let url_with_aws = checkAws(fileName);
-        let credentials = '';
         if (url_with_aws){
             fileName = url_with_aws[0];
-            credentials = url_with_aws[1];
         }
         into       = into     || "head";
         callback   = callback || function() {};
@@ -4131,12 +4129,7 @@
             editormd.loadFiles.css.push(fileName);
             callback();
         };
-        if(credentials!==''){
-            css.href   = fileName + ".css" + "?" + credentials;
-        }else{
-            css.href   = fileName + ".css";
-        }
-
+        css.href   = fileName + ".css";
 
         if(into === "head") {
             document.getElementsByTagName("head")[0].appendChild(css);
@@ -4159,10 +4152,8 @@
 
     editormd.loadScript = function(fileName, callback, into) {
         let url_with_aws = checkAws(fileName);
-        let credentials = '';
         if (url_with_aws){
             fileName = url_with_aws[0];
-            credentials = url_with_aws[1];
         }
         into          = into     || "head";
         callback      = callback || function() {};
@@ -4171,11 +4162,7 @@
         script        = document.createElement("script");
         script.id     = fileName.replace(/[\./]+/g, "-");
         script.type   = "text/javascript";
-        if(credentials!==''){
-            script.src = fileName + ".js" + "?" + credentials;
-        }else{
-            script.src = fileName + ".js";
-        }
+        script.src = fileName + ".js";
 
         if (editormd.isIE8)
         {
