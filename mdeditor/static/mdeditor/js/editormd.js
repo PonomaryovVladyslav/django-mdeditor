@@ -2706,7 +2706,7 @@
          */
 
         executePlugin : function(name, path) {
-
+            debugger;
             var _this    = this;
             var cm       = this.cm;
             var settings = this.settings;
@@ -3117,7 +3117,6 @@
         },
 
         image : function() {
-            debugger;
             this.executePlugin("imageDialog", "image-dialog/image-dialog");
         },
 
