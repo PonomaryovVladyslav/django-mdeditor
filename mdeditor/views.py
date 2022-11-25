@@ -68,6 +68,8 @@ class UploadView(generic.View):
                            MDEDITOR_CONFIGS['image_folder'],
                            file_full_name)
         url = url.replace(os.sep, '/')
+        if not url.startswith('http'):
+            url = 'http://127.0.0.1:8000' + url
         return JsonResponse({'success': 1,
                              'message': "上传成功！",
                              'url': url})
