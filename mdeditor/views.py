@@ -61,9 +61,16 @@ class UploadView(generic.View):
         file_full_name = '%s_%s.%s' % (file_name,
                                        '{0:%Y%m%d%H%M%S%f}'.format(datetime.datetime.now()),
                                        file_extension)
-        with open(os.path.join(file_path, file_full_name), 'wb+') as file:
-            for chunk in upload_image.chunks():
-                file.write(chunk)
+        try:
+            from app.models import Picture
+            new_picture = Picture(img=upload_image)
+            new_picture.save()
+            print('aaaaaaaaaaaaaaa')
+        except ImportError:
+            print('Import error')
+        # with open(os.path.join(file_path, file_full_name), 'wb+') as file:
+        #     for chunk in upload_image.chunks():
+        #         file.write(chunk)
         url = os.path.join(settings.MEDIA_URL,
                            MDEDITOR_CONFIGS['image_folder'],
                            file_full_name)
