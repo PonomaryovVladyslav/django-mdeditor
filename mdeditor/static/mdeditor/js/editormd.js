@@ -3117,6 +3117,7 @@
         },
 
         image : function() {
+            debugger;
             this.executePlugin("imageDialog", "image-dialog/image-dialog");
         },
 
