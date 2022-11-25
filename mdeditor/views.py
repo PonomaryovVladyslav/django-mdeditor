@@ -22,6 +22,7 @@ class UploadView(generic.View):
 
     def post(self, request, *args, **kwargs):
         upload_image = request.FILES.get("editormd-image-file", None)
+        print('aaasdas')
         media_root = settings.MEDIA_ROOT
 
         # image none check
