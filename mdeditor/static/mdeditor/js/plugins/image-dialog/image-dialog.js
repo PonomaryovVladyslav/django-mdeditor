@@ -151,7 +151,7 @@
                         var uploadIframe = document.getElementById(iframeName);
 
                         uploadIframe.onload = function() {
-
+                            debugger;
                             loading(false);
 
                             var body = (uploadIframe.contentWindow ? uploadIframe.contentWindow : uploadIframe.contentDocument).document.body;
