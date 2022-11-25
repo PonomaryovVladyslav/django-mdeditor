@@ -46,6 +46,7 @@ class UploadView(generic.View):
 
         # image floder check
         file_path = os.path.join(media_root, MDEDITOR_CONFIGS['image_folder'])
+        file_path = file_path.replace(os.sep, '/')
         if not os.path.exists(file_path):
             try:
                 os.makedirs(file_path)
