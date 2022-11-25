@@ -2706,7 +2706,6 @@
          */
 
         executePlugin : function(name, path) {
-            debugger;
             var _this    = this;
             var cm       = this.cm;
             var settings = this.settings;
