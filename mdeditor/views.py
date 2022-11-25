@@ -65,8 +65,8 @@ class UploadView(generic.View):
             for chunk in upload_image.chunks():
                 file.write(chunk)
         url = os.path.join(settings.MEDIA_URL,
-                                                 MDEDITOR_CONFIGS['image_folder'],
-                                                 file_full_name)
+                           MDEDITOR_CONFIGS['image_folder'],
+                           file_full_name)
         url = url.replace(os.sep, '/')
         return JsonResponse({'success': 1,
                              'message': "上传成功！",
